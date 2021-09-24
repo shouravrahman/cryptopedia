@@ -4,6 +4,8 @@ import { Typography, Row, Col, Statistic } from 'antd'
 import { Link } from 'react-router-dom'
 import { Cryptocurrencies, News } from '../Components'
 import { useGetCryptosQuery } from '../services/cryptoApi'
+import Loader from './Loader'
+
 const { Title } = Typography
 
 const HomePage = () => {
@@ -14,7 +16,7 @@ const HomePage = () => {
 	const { total, totalExchanges, totalMarkets, totalMarketCap, total24hVolume } =
 		globalStats
 
-	if (isFetching) return 'Loading...'
+	if (isFetching) return <Loader />
 	return (
 		<>
 			<Title level={2} className='heading'>
